@@ -5,7 +5,8 @@ description = {
   summary = 'nnlr',
   detailed = [[
     Add layer-wise learning rate schemes to Torch
-  ]]
+  ]],
+  license = 'MIT'
 }
 
 source = {

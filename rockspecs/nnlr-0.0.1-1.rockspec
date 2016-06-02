@@ -16,7 +16,8 @@ source = {
 
 dependencies = {
   'torch >= 7.0',
-  'lua ~> 5.1'
+  'lua ~> 5.1',
+  'moses',
 }
 build = {
   type = 'builtin',

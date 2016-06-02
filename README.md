@@ -54,13 +54,12 @@ These two packages should work well in conjunction.)
 
 ## Installation
 
-1. Install the `sgd-lrs-fix` branch of Optim.
-   (This is required until some bug fixes get merged back into Torch)
+1. Install the latest version of Optim.
+   (This is required until the latest changes are added to the central Torch distro)
 
    ```sh
-   git clone https://github.com/gpleiss/optim.git
+   git clone https://github.com/torch/optim.git
    cd optim
-   git checkout sgd-lrs-fix
    luarocks make optim-1.0.5-0.rockspec
    cd ..
    ```

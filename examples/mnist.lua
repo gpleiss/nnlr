@@ -138,6 +138,7 @@ for i = 1, dataset:size(), batchSize do
   optim.sgd(feval, weight, {
     learningRates = learningRates,
     weightDecays = weightDecays,
+    learningRate = baseLearningRate,
     momentum = 0.9,
   })
 

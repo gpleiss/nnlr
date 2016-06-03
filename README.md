@@ -42,11 +42,11 @@ The SGD config table should then be of the form:
 {
   learningRates = learningRates,
   weightDecays = weightDecays,
+  learningRate = baseLearningRate,
   -- ...
 }
 ```
-Note that the config table uses the keys `learningRates` and `weightDecays` (**plural**)
-rather than `learningRate` and `weightDecay` (singular).
+Note that the config table uses the keys `learningRates` and `weightDecays` (**plural**).
 
 (The API is inspired by the [nninit](https://github.com/Kaixhin/nninit) package.
 These two packages should work well in conjunction.)
@@ -54,30 +54,9 @@ These two packages should work well in conjunction.)
 
 ## Installation
 
-1. Install the latest version of Optim.
-   (This is required until the latest changes are added to the central Torch distro)
-
-   ```sh
-   git clone https://github.com/torch/optim.git
-   cd optim
-   luarocks make optim-1.0.5-0.rockspec
-   cd ..
-   ```
-
-2. Install `nnlr`
-
-   ```sh
-   luarocks install nnlr
-   ```
-
-   or, for the latest version
-
-   ```sh
-   git clone https://github.com/gpleiss/nnlr.git
-   cd nnlr
-   luarocks make rockspecs/nnlr-0.0.1-1.rockspec
-   cd ..
-   ```
+ ```sh
+luarocks install nnlr
+```
 
 ## Example
 
@@ -163,6 +142,7 @@ local weight, grad = net:getParameters()
   optim.sgd(feval, weight, {
     learningRates = learningRates,
     weightDecays = weightDecays,
+    learningRate = baseLearningRate,
     momentum = 0.9,
   })
 

@@ -55,8 +55,8 @@ end
 -- but for learningRates and weightDecays
 -----
 nn.Module.optimConfig = function(self, baseLearningRate, baseWeightDecay)
-  local weightLearningRates = self.weight and self.weight:clone():fill((self.__weightLearningRate or 1) * baseLearningRate)
-  local biasLearningRates   = self.bias   and   self.bias:clone():fill((self.__biasLearningRate   or 1) * baseLearningRate)
+  --local weightLearningRates = self.weight and self.weight:clone():fill((self.__weightLearningRate or 1) * baseLearningRate)
+  --local biasLearningRates   = self.bias   and   self.bias:clone():fill((self.__biasLearningRate   or 1) * baseLearningRate)
   local weightWeightDecays  = self.weight and self.weight:clone():fill((self.__weightWeightDecay  or 1) * baseWeightDecay)
   local biasWeightDecays    = self.bias   and   self.bias:clone():fill((self.__biasWeightDecay    or 1) * baseWeightDecay)
   return m.compact({weightLearningRates, biasLearningRates}), m.compact({weightWeightDecays, biasWeightDecays})

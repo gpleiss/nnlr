@@ -6,8 +6,6 @@ At the moment, the only supported optimization algorithm
 supported is [optim](https://github.com/torch/optim)
 SGD implementation.
 
-This package is super-beta, so feedback is appreciated!
-
 ## Usage
 
 `nnlr` adds the following methods to `nn.Module`:

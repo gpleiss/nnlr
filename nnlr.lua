@@ -27,6 +27,16 @@ nn.Module.learningRate = function(self, accessor, value)
   return self
 end
 
+-- Seperate :learningRate() method for containers
+nn.Container.learningRate = function(self, accessor, value)
+  for i, module in ipairs(self.modules) do
+      if module[accessor] ~= nil then
+          module:learningRate(accessor, value)
+      end
+  end
+  return self
+end
+
 -----
 -- :weightDecay() - set relative weight decay for a module
 -- Module must have parameters (weight and/or bias)
@@ -46,6 +56,16 @@ nn.Module.weightDecay = function(self, accessor, value)
     end
   else
     error('Unknown accessor type (should be \'weight\' or \'bias\')')
+  end
+  return self
+end
+
+-- Seperate :weightDecay() method for containers
+nn.Container.weightDecay = function(self, accessor, value)
+  for i, module in ipairs(self.modules) do
+      if (module[accessor] ~= nil) then
+          module:weightDecay(accessor, value)
+      end
   end
   return self
 end
